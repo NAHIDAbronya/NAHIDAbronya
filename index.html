@@ -1,18 +1,16 @@
 <!DOCTYPE html> 
-
-<html lang="en"> 
+<html> 
 
 <head>
 
- <title>NAHIDAbronya个人中心</title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NAHIDAbronya个人中心</title>
 
 <script type="text/javascript">
 
 	window.onload = function () {
 		
-
 		C = Math.cos; // cache Math objects
 
 		S = Math.sin;
@@ -162,80 +160,6 @@
 		d.onmousemove({pageX:300, pageY:290})
 
 	}
-/*
-var d;
-
-	if(d) 
-	{
-		d.addEventListener("touchstart", handleTouchStart, false);
-		d.addEventListener("touchmove", handleTouchMove, false);
-		d.addEventListener("touchend", handleTouchEnd, false);
-			// Rest of your code
-	}
-
-	d.addEventListener("touchstart", handleTouchStart, false);
-	d.addEventListener("touchmove", handleTouchMove, false);
-	d.addEventListener("touchend", handleTouchEnd, false);
-
-	var ongoingTouches = [];
-
-	function handleTouchStart(evt) {
-	evt.preventDefault();
-	var touches = evt.changedTouches;
-
-	for (var i = 0; i < touches.length; i++) {
-		ongoingTouches.push(copyTouch(touches[i]));
-		console.log("touchstart:" + i + "...");
-	}
-	}
-
-	function handleTouchMove(evt) {
-	evt.preventDefault();
-	var touches = evt.changedTouches;
-
-	for (var i = 0; i < touches.length; i++) {
-		var idx = ongoingTouchIndexById(touches[i].identifier);
-
-		if (idx >= 0) {
-		console.log("continuing touch " + idx);
-		ongoingTouches.splice(idx, 1, copyTouch(touches[i])); // swap in the new touch record
-		} else {
-		console.log("can't figure out which touch to continue");
-		}
-	}
-	}
-
-	function handleTouchEnd(evt) {
-	evt.preventDefault();
-	var touches = evt.changedTouches;
-
-	for (var i = 0; i < touches.length; i++) {
-		var idx = ongoingTouchIndexById(touches[i].identifier);
-
-		if (idx >= 0) {
-		ongoingTouches.splice(idx, 1); // remove it; we're done
-		} else {
-		console.log("can't figure out which touch to end");
-		}
-	}
-	}
-
-	function copyTouch(touch) {
-	return { identifier: touch.identifier, pageX: touch.pageX, pageY: touch.pageY };
-	}
-
-	function ongoingTouchIndexById(idToFind) {
-	for (var i = 0; i < ongoingTouches.length; i++) {
-		var id = ongoingTouches[i].identifier;
-
-		if (id == idToFind) {
-		return i;
-		}
-	}
-	return -1; // not found
-	}
-*/
-
 </script>
 
 <style>
