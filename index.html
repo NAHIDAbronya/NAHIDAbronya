@@ -251,6 +251,47 @@
 			z-index: 0;
 		}
 
+		.myButton 
+		{
+			justify-content: center;
+			align-items: center; /* 添加这一行以使文本在垂直方向上居中 */
+			z-index: 9998;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: flex;
+			font-size: 16px;
+			margin: 0 auto; /* 更改margin为0 auto以在水平方向上居中 */
+			cursor: pointer;
+			border-radius: 12px;
+			color: #2968c6; /* 新的蓝色主色 */
+			background-color: #8a2be2; /* 新的紫色辅色 */
+			border: none;
+			position: relative;
+			animation: glowing 2s infinite;
+		}
+
+
+		@keyframes glowing 
+		{
+			0% {
+				background-color: #2968c6; /* 新的蓝色主色 */
+				box-shadow: 0 0 5px #5f32d1; /* 对应的新的颜色值 */
+			}
+			50% {
+				background-color: #8a2be2; /* 新的紫色辅色 */
+				box-shadow: 0 0 20px #a46fd0; /* 对应的新的颜色值 */
+			}
+			100% {
+				background-color: #2968c6; /* 新的蓝色主色 */
+				box-shadow: 0 0 5px #5f32d1; /* 对应的新的颜色值 */
+			}
+		}
+
+		a {
+			text-decoration: none;
+		}
+
 </style>
 
 </head>
@@ -273,6 +314,11 @@
 			<use xlink:href="#s-text" class="text"></use>
 			<use xlink:href="#s-text" class="text"></use>
 		</svg>
+		<button class="myButton" >
+			<a href="favorable.html">
+				夂歌
+			</a>
+		</button>
 	</div>
 </body>
 
