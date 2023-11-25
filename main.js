@@ -25,7 +25,7 @@ function checkPassword() {
 
   if (enteredPassword === correctPassword[0]) {
       alert("密码正确");
-      window.location.href = 'html/y94/test.html';
+      window.location.href = 'html/y94/index.html';
   } else {
       alert("密码错误");
   }
