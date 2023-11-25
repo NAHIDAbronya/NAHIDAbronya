@@ -1,325 +1,47 @@
-<!DOCTYPE html> 
-<html> 
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>NAHIDAbronya个人中心</title>
-
-<script type="text/javascript">
-
-	window.onload = function () {
-		
-		C = Math.cos; // cache Math objects
-
-		S = Math.sin;
-
-		U = 0;
-
-		w = window;
-
-		j = document;
-
-		d = j.getElementById("c");
-
-		c = d.getContext("2d");
-
-		W = d.width = w.innerWidth;
-
-		H = d.height = w.innerHeight;
-
-		c.fillRect(0, 0, W, H); // resize <canvas> and draw black rect (default)
-
-		c.globalCompositeOperation = "lighter"; // switch to additive color application
-
-		c.lineWidth = 0.2;
-
-		c.lineCap = "round";
-
-		var bool = 0, 
-
-			t = 0; // theta
-
-		d.onmousemove = function (e) {
-
-			if(window.T) {
-
-				if(D==9) { D=Math.random()*15; f(1); }
-
-				clearTimeout(T);
-
-			}		
-
-			X = e.pageX; // grab mouse pixel coords
-
-			Y = e.pageY;
-
-			a=0; // previous coord.x
-
-			b=0; // previous coord.y 
-
-			A = X, // original coord.x
-
-			B = Y; // original coord.y
-
-			R=(e.pageX/W * 999>>0)/999;
-
-			r=(e.pageY/H * 999>>0)/999;
-
-			U=e.pageX/H * 360 >>0;
-
-			D=9;
-
-			g = 360 * Math.PI / 180;
-
-			T = setInterval(f = function (e) { // start looping spectrum
-
-				c.save();
-
-				c.globalCompositeOperation = "source-over"; // switch to additive color application
-
-				if(e!=1) {
-
-					c.fillStyle = "rgba(0,0,0,0.02)";
-
-					c.fillRect(0, 0, W, H); // resize <canvas> and draw black rect (default)
-
-				}
-
-				c.restore();
-
-				i = 25; while(i --) {
-
-					c.beginPath();
-
-					if(D > 450 || bool) { // decrease diameter
-
-						if(!bool) { // has hit maximum
-
-							bool = 1;
-
-						}
-
-						if(D < 0.1) { // has hit minimum
-
-							bool = 0;
-
-						}
-
-						t -= g; // decrease theta
-
-						D -= 0.1; // decrease size
-
-					}
-
-					if(!bool) {
-
-						t += g; // increase theta
-
-						D += 0.1; // increase size
-
-					}
-
-					q = (R / r - 1) * t; // create hypotrochoid from current mouse position, and setup variables
-
-					x = (R - r) * C(t) + D * C(q) + (A + (X - A) * (i / 25)) + (r - R); // center on xy coords
-
-					y = (R - r) * S(t) - D * S(q) + (B + (Y - B) * (i / 25));
-
-					if (a) { // draw once two points are set
-
-						c.moveTo(a, b);
-
-						c.lineTo(x, y)
-
-					}
-
-					c.strokeStyle = "hsla(" + (U % 360) + ",100%,50%,0.75)"; // draw rainbow hypotrochoid
-
-					c.stroke();
-
-					a = x; // set previous coord.x
-
-					b = y; // set previous coord.y
-
-				}
-
-				U -= 0.5; // increment hue
-
-				A = X; // set original coord.x
-
-				B = Y; // set original coord.y
-
-			}, 16);
-
-		}
-
-		j.onkeydown = function(e) { a=b=0; R += 0.05 }
-
-		d.onmousemove({pageX:300, pageY:290})
-
-	}
-</script>
-
-<style>
-	/* Main styles */
-	@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
-        
-        .text {
-          fill: none;
-          stroke-width: 5;
-          stroke-dasharray: 0 300;
-          stroke-dashoffset: 0;
-        }
-        
-        .text:nth-child(3n + 1) {
-          stroke: #ffff;
-            animation: stroke 10s  ease-in-out forwards;  
-        
-        }
-        .text:nth-child(3n + 2) {
-          stroke: #FFB6C1;
-        animation: stroke1 10s  ease-in-out forwards;
-        
-        }
-        
-        .text:nth-child(3n + 3) {
-          stroke: #00FFFF;
-        animation: stroke2 10s  ease-in-out forwards;
-        
-        }
-        
-        
-        @keyframes stroke {
-          100% {
-            stroke-dashoffset: 1000;
-            stroke-dasharray: 80 160;
-          }
-        }
-        
-        @keyframes stroke1 {
-          100% {
-            stroke-dashoffset: 1080;
-            stroke-dasharray: 80 160;
-          }
-        }
-        
-        
-        @keyframes stroke2 {
-          100% {
-            stroke-dashoffset: 1160;
-            stroke-dasharray: 80 160;
-          }
-        }
-        /* Other styles */
-        html, body {
-          height: 100%;
-        }
-        
-        body {
-          background: #FFFFCC;
-          background-size: .2em 100%;
-          font: 6em/1 Open Sans, Impact;
-          margin: 0;
-        }
-        
-        svg {
-		  display: flex;
-          position: relative;
-          max-width: 100%;
-          height: auto;
-		  user-select: none;
-		  z-index: 9999;
-		  margin: auto;
-		  border: none;
-		  left: 0;
-		  bottom: 0;
-
-        }
-
-		canvas {
-			display: flex;
-			margin: 0;
-			padding: 0;
-			border: none;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 0;
-		}
-
-		.myButton 
-		{
-			justify-content: center;
-			align-items: center; /* 添加这一行以使文本在垂直方向上居中 */
-			z-index: 9998;
-			padding: 10px 20px;
-			text-align: center;
-			text-decoration: none;
-			display: flex;
-			font-size: 16px;
-			margin: 0 auto; /* 更改margin为0 auto以在水平方向上居中 */
-			cursor: pointer;
-			border-radius: 12px;
-			color: #2968c6; /* 新的蓝色主色 */
-			background-color: #8a2be2; /* 新的紫色辅色 */
-			border: none;
-			position: relative;
-			animation: glowing 2s infinite;
-		}
-
-
-		@keyframes glowing 
-		{
-			0% {
-				background-color: #2968c6; /* 新的蓝色主色 */
-				box-shadow: 0 0 5px #5f32d1; /* 对应的新的颜色值 */
-			}
-			50% {
-				background-color: #8a2be2; /* 新的紫色辅色 */
-				box-shadow: 0 0 20px #a46fd0; /* 对应的新的颜色值 */
-			}
-			100% {
-				background-color: #2968c6; /* 新的蓝色主色 */
-				box-shadow: 0 0 5px #5f32d1; /* 对应的新的颜色值 */
-			}
-		}
-
-		a {
-			text-decoration: none;
-		}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/main.js"></script>
+    <link href="styles/style.css" rel="stylesheet">
+    <title>Welcome</title>
 </head>
-
 <body>
-	<div class="bottom">
+    <script>
+        effect();
+    </script>
+
+    <!-- 样式 -->
+    <div class="top">   
+        <div class="up">
+            <svg viewBox="0 0 1320 200">
+			
+                <symbol id="s-text">
+                    <text class="font" text-anchor="middle" x="50%" y="50%" dy=".35em" font-size="110">
+                        NAHIDAbronya个人中心 
+                    </text>
+                </symbol>
+                
+                <use xlink:href="#s-text" class="text"></use>
+                <use xlink:href="#s-text" class="text"></use>
+                <use xlink:href="#s-text" class="text"></use>
+            </svg>
+        </div>
+		
+        <div class="down">
+            <form onsubmit="checkPassword(); return false;">
+                <input type="password" id="passwordInput" placeholder="请输入密码">
+                <button type="submit" class="password">芝麻开门</button>
+            </form>
+        </div>
+	</div>   
+
+    <!-- background -->
+    <div class>     
 		<canvas id="c"></canvas>
 	</div>
-
-	<div class="top">
-		<svg viewBox="0 0 1320 300">
-			<!-- Symbol -->
-			<symbol id="s-text">
-				<text text-anchor="middle" x="50%" y="50%" dy=".35em">
-					我想对夂歌 
-				</text>
-			</symbol>
-			<!-- Duplicate symbols -->
-			<use xlink:href="#s-text" class="text"></use>
-			<use xlink:href="#s-text" class="text"></use>
-			<use xlink:href="#s-text" class="text"></use>
-		</svg>
-		<button class="myButton">
-			<a href="favorable.html">
-				说：
-			</a>
-		</button>
-	</div>
+    
 </body>
-
 </html>
+
