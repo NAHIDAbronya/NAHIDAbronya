@@ -28,6 +28,7 @@ function checkPassword() {
       window.location.href = 'html/y94/index.html';
   } else {
       alert("密码错误");
+      document.getElementById("passwordInput").value = "";
   }
 }
 /******************背景*************************************************/
