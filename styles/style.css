@@ -1,0 +1,145 @@
+/*************输入框********************/
+#passwordInput {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #4c00ff;
+  border-radius: 5px;
+  z-index: 9997;
+  margin: 10px auto; /* 设置左右外边距为auto，实现水平居中 */
+  display: block; /* 让输入框变为块级元素，以便使用 margin: 0 auto; 居中 */
+  position: relative;
+  color: #ffa3dc;
+  animation: glowing 2s infinite;
+}
+
+
+
+.password {
+  -webkit-user-select: none;
+  user-select: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center; /* 添加这一行以使文本在垂直方向上居中 */
+  z-index: 9998;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  margin: 20px auto ; /* 更改margin为0 auto以在水平方向上居中 */
+  color: #ffa3dc; /* 新的蓝色主色 */
+  position: relative;
+  animation: glowing 2s infinite;
+}
+
+/*****************************/
+	/* Main styles */
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+        
+        .text {
+          fill: rgba(0, 221, 255, 0.04);;
+          stroke-width: 5;
+          stroke-dasharray: 0 300;
+          stroke-dashoffset: 0;
+        }
+        
+        .text:nth-child(3n + 1) {
+          stroke: #ffff;
+            animation: stroke 10s  ease-in-out forwards;  
+        
+        }
+        .text:nth-child(3n + 2) {
+          stroke: #FFB6C1;
+        animation: stroke1 10s  ease-in-out forwards;
+        
+        }
+        
+        .text:nth-child(3n + 3) {
+          stroke: #00FFFF;
+        animation: stroke2 10s  ease-in-out forwards;
+        
+        }
+        
+        
+        @keyframes stroke {
+          100% {
+            stroke-dashoffset: 1000;
+            stroke-dasharray: 80 160;
+          }
+        }
+        
+        @keyframes stroke1 {
+          100% {
+            stroke-dashoffset: 1080;
+            stroke-dasharray: 80 160;
+          }
+        }
+        
+        
+        @keyframes stroke2 {
+          100% {
+            stroke-dashoffset: 1160;
+            stroke-dasharray: 80 160;
+          }
+        }
+
+        @keyframes glowing 
+        {
+          0% {
+            background-color: #2968c6; /* 新的蓝色主色 */
+            box-shadow: 0 0 5px #5f32d1; /* 对应的新的颜色值 */
+          }
+          50% {
+            background-color: #8a2be2; /* 新的紫色辅色 */
+            box-shadow: 0 0 20px #a46fd0; /* 对应的新的颜色值 */
+          }
+          100% {
+            background-color: #2968c6; /* 新的蓝色主色 */
+            box-shadow: 0 0 5px #5f32d1; /* 对应的新的颜色值 */
+          }
+        }
+        /* Other styles */
+        html{
+          height: 100%;
+        }
+        
+        body {
+          height: 100%;
+          font: 6em/1 Open Sans, Impact;
+          margin: 0;
+          font-family: 'Arial', sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        svg {
+          display: flex;
+          position: relative;
+          z-index: 9999;
+          -webkit-user-select: none;
+          user-select: none;
+        }
+
+        canvas {
+          display: flex;
+          margin: 0;
+          padding: 0;
+          border: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        }
+
+        .top {
+          width: 100%;
+          box-sizing: border-box;
+          height: 50%;
+        }
+
+/*************************************************/
