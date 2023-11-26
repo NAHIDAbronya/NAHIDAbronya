@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'cute'; /* 你可以将这个名字设置为你想要的任何名字 */
+    src: url('resource/cute.ttf') format('truetype'); /* 替换为你的字体文件的实际路径 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'cute', sans-serif;
+    font-size:20px;
+    background: linear-gradient(to right, #ffcccc, #cc99ff);
+    text-align:left;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background: linear-gradient(to left, #ffcccc, #cc99ff);
+    overflow: hidden;
+  }
+
+  /* 导航链接样式 */
+  nav a {
+    float: left;
+    display: block;
+    color: blue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  /* 悬停时下拉菜单样式 */
+  nav a:hover {
+    background-color: #ffddee;
+    color: yellowgreen;
+  }
+
+  /* 下拉菜单样式 */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+
+  /* 下拉菜单内容样式 */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  /* 下拉菜单链接样式 */
+  .dropdown-content a {
+    float: none;
+    color: #0471846d;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  /* 下拉菜单链接悬停时样式 */
+  .dropdown-content a:hover {
+    background-color: #ffddee;
+  }
+
+  /* 显示下拉菜单内容 */
+  .dropdown:hover .dropdown-content {
+    display: block;
+    margin-top: 3%;
+    background: linear-gradient(to left, #ccf7ff, #ff999c);
+    overflow: hidden;
+  }
