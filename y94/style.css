@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'cute';
+    src: url('resource/cute.ttf') format('truetype');
+}
+
+ audio::-webkit-media-controls-panel {
+  background-color:  rgba(44, 86, 149, 0.7);
+}
+
+#canvas {
+  position: absolute;
+  z-index: 1;
+}
+
+.text {
+  background: linear-gradient(to right, rgb(161, 235, 255), rgb(107, 107, 244));
+  background-clip: text; /* Standard syntax */
+  -webkit-background-clip: text; /* WebKit browsers */
+  color: transparent;
+  text-fill-color: transparent; /* Standard syntax */
+  -webkit-text-fill-color: transparent; /* WebKit browsers */
+  width: 99.999%;
+  height: 99.999%;
+  align-items: center;
+  justify-content: center;
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  font-size: 2rem;
+  z-index: 2;
+  user-select: none;
+  min-height: 100vh;
+  height:auto;
+  padding-top: 10%;
+}
+
+#myAudio {
+  z-index: 3;
+  display: flex;
+  position: fixed;
+  padding-left: 40%;
+}
+
+body {
+    background: #060e1b;
+    overflow: hidden;
+    font-family: 'cute', sans-serif;
+}
+.codrops-demos {
+    font-size: 0.8em;
+    text-align:center;
+    position:absolute;
+    z-index:99;
+    width:96%;
+}
+.codrops-demos a {
+    display: inline-block;
+    margin: 0.35em 0.1em;
+    padding: 0.5em 1.2em;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-radius: 2px;
+    font-size: 110%;
+    border: 2px solid transparent;
+    color:#fff;
+}
+.codrops-demos a:hover,
+.codrops-demos a.current-demo {
+    border-color: #383a3c;
+}
